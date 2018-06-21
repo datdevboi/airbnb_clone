@@ -1,8 +1,9 @@
 import * as React from "react";
-import { withFormik, FormikErrors, FormikProps } from "formik";
-import { Form, Icon, Input, Button } from "antd";
+import { withFormik, FormikErrors, FormikProps, Field } from "formik";
+import { Form, Icon, Button } from "antd";
 
 import { validUserSchema } from "@airbnb_clone/common";
+import { InputField } from "../../shared/InputField";
 const FormItem = Form.Item;
 
 interface FormValues {
@@ -15,14 +16,7 @@ interface Props {
 
 class C extends React.Component<FormikProps<FormValues> & Props> {
   render() {
-    const {
-      handleChange,
-      values,
-      handleBlur,
-      handleSubmit,
-      touched,
-      errors
-    } = this.props;
+    const { handleSubmit } = this.props;
 
     return (
       <div
@@ -41,35 +35,25 @@ class C extends React.Component<FormikProps<FormValues> & Props> {
           className="login-form"
           onSubmit={handleSubmit}
         >
-          <FormItem
-            validateStatus={touched.email && errors.email ? "error" : "success"}
-            help={touched.email && errors.email ? errors.email : ""}
-          >
-            <Input
-              name="email"
-              prefix={<Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />}
-              placeholder="Email"
-              value={values.email}
-              onChange={handleChange}
-              onBlur={handleBlur}
-            />
-          </FormItem>
-          <FormItem
-            help={touched.password && errors.password ? errors.password : ""}
-            validateStatus={
-              touched.password && errors.password ? "error" : "success"
+          <Field
+            name="email"
+            placeholder="Email"
+            prefix={
+              <Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} /> as any
             }
-          >
-            <Input
-              name="password"
-              prefix={<Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />}
-              type="password"
-              placeholder="Password"
-              value={values.password}
-              onChange={handleChange}
-              onBlur={handleBlur}
-            />
-          </FormItem>
+            component={InputField}
+          />
+
+          <Field
+            name="password"
+            type="password"
+            placeholder="Password"
+            prefix={
+              <Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} /> as any
+            }
+            component={InputField}
+          />
+
           <FormItem>
             <a className="login-form-forgot" href="">
               Forgot password
