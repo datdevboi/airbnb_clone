@@ -7,3 +7,5 @@ temp/
 dump.rdb
 .env
 dist
+packages/server/.env.example
+packages/server/.env.prod
