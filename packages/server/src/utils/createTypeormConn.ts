@@ -1,5 +1,5 @@
 import { getConnectionOptions, createConnection } from "typeorm";
-import { User } from "@airbnb_clone/server/src/entity/User";
+import { User } from "../entity/User";
 
 export const createTypeormConn = async () => {
   const connectionOptions = await getConnectionOptions(process.env.NODE_ENV);
