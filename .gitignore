@@ -9,3 +9,4 @@ dump.rdb
 dist
 packages/server/.env.example
 packages/server/.env.prod
+.netlify
