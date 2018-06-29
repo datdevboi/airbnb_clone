@@ -9,7 +9,7 @@ import { userNotFoundError, expiredKeyError } from "./errorMessages";
 import { forgotPasswordPrefix } from "../../../constants";
 
 import { formatYupError } from "../../../utils/formatYupError";
-import { registerPasswordValidation } from "@airbnb_clone/common";
+import { registerPasswordValidation } from "@airbnbclone/common";
 
 // 20 minutes
 // lock account

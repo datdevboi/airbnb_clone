@@ -1,6 +1,6 @@
 import * as React from "react";
 import { RegisterView } from "./ui/RegisterView";
-import { RegisterController } from "@airbnb_clone/controller";
+import { RegisterController } from "@airbnbclone/controller";
 
 export class RegisterConnector extends React.Component {
   render() {

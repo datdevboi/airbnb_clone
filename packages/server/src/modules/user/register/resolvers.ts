@@ -2,7 +2,7 @@ import { ResolverMap } from "../../../types/graphql-utils";
 import { User } from "../../../entity/User";
 import { formatYupError } from "../../../utils/formatYupError";
 import { duplicateEmail } from "./errorMessages";
-import { validUserSchema } from "@airbnb_clone/common";
+import { validUserSchema } from "@airbnbclone/common";
 import { sendEmail } from "../../../utils/sendEmail";
 import { createConfirmEmailLink } from "./createConfirmEmailLink";
 

@@ -2,7 +2,7 @@ import * as React from "react";
 import { withFormik, FormikErrors, FormikProps, Field } from "formik";
 import { Form, Icon, Button } from "antd";
 
-import { validUserSchema } from "@airbnb_clone/common";
+import { validUserSchema } from "@airbnbclone/common";
 import { InputField } from "../../shared/InputField";
 const FormItem = Form.Item;
 

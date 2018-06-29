@@ -1,5 +1,5 @@
 {
-  "name": "@airbnb_clone/web",
+  "name": "@airbnbclone/web",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -16,8 +16,8 @@
     "react-router-dom": "^4.3.1",
     "react-scripts-ts": "2.16.0",
     "yup": "^0.25.1",
-    "@airbnb_clone/common": "1.0.0",
-    "@airbnb_clone/controller": "1.0.0"
+    "@airbnbclone/common": "1.0.0",
+    "@airbnbclone/controller": "1.0.0"
   },
   "scripts": {
     "start": "react-scripts-ts start",

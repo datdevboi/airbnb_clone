@@ -9,7 +9,7 @@ import {
   emailNotLongEnough,
   invalidEmail,
   passwordNotLongEnough
-} from "@airbnb_clone/common";
+} from "@airbnbclone/common";
 
 faker.seed(Date.now() + 5);
 const email = faker.internet.email();

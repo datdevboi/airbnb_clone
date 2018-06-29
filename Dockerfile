@@ -1,6 +1,6 @@
 FROM node
 
-WORKDIR /airbnb_clone
+WORKDIR /airbnbclone
 
 COPY ./package.json .
 COPY ./packages/server/package.json ./packages/server/
