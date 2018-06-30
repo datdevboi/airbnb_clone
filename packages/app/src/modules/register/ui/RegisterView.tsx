@@ -16,11 +16,12 @@ interface Props {
 
 class C extends React.Component<FormikProps<FormValues> & Props> {
   render() {
-    const { submit, handleSubmit } = this.props;
+    const { handleSubmit } = this.props;
 
     return (
       <View
         style={{
+          flex: 1,
           display: "flex",
           position: "relative",
           flexDirection: "column",

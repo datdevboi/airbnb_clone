@@ -23,7 +23,7 @@ export class InputField extends React.Component<
       <Input
         {...props}
         errorStyle={errStyle}
-        errorMessage="ENTER A VALID ERROR HERE"
+        errorMessage={errorMsg}
         onChangeText={this.onChangeText}
         value={field.value}
       />
