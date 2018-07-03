@@ -4,6 +4,7 @@ import { Form, Icon, Button } from "antd";
 
 import { validUserSchema } from "@airbnbclone/common";
 import { InputField } from "../../shared/InputField";
+import { Link } from "react-router-dom";
 const FormItem = Form.Item;
 
 interface FormValues {
@@ -69,7 +70,7 @@ class C extends React.Component<FormikProps<FormValues> & Props> {
             </Button>
           </FormItem>
           <FormItem>
-            Or <a href="">Login Now</a>
+            Or <Link to="/">Login</Link>
           </FormItem>
         </Form>
       </div>
