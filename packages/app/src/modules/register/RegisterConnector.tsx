@@ -1,13 +1,17 @@
 import * as React from "react";
 
 import { RegisterView } from "../../modules/register/ui/RegisterView";
-
+import { RegisterController } from "@airbnbclone/controller";
 export class RegisterConnector extends React.Component {
   dummySubmit = async (values: any) => {
     console.log(values);
     return null;
   };
   render() {
-    return <RegisterView submit={this.dummySubmit} />;
+    return (
+      <RegisterController>
+        {({ submit }: { submit: any }) => <RegisterView submit={submit} />}
+      </RegisterController>
+    );
   }
 }
