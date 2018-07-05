@@ -38,7 +38,7 @@ class C extends React.Component<FormikProps<FormValues> & Props> {
           component={InputField as any}
         />
 
-        <Button title="submit" onPress={handleSubmit as any} />
+        <Button title="Register" onPress={handleSubmit as any} />
       </View>
     );
   }
