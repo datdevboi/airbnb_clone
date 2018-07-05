@@ -2,7 +2,7 @@ import * as React from "react";
 import { withFormik, FormikErrors, FormikProps, Field } from "formik";
 import { Form, Icon, Button } from "antd";
 import { Link } from "react-router-dom";
-import { validUserSchema } from "@airbnbclone/common";
+import { loginSchema } from "@airbnbclone/common";
 import { InputField } from "../../shared/InputField";
 const FormItem = Form.Item;
 
@@ -78,12 +78,14 @@ class C extends React.Component<FormikProps<FormValues> & Props> {
 }
 
 export const LoginView = withFormik<Props, FormValues>({
-  validationSchema: validUserSchema,
   mapPropsToValues: () => ({ email: "", password: "" }),
   handleSubmit: async (values, { setErrors, props, setSubmitting }) => {
     const errors = await props.submit(values);
     if (errors) {
       setErrors(errors);
     }
-  }
+  },
+  validationSchema: loginSchema,
+  validateOnBlur: false,
+  validateOnChange: false
 })(C);
