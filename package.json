@@ -2,7 +2,9 @@
   "private": true,
   "scripts": {
     "build:server": "lerna run build",
-    "build:web": "lerna run build"
+    "build:web": "lerna run build",
+    "refresh:packages": "rimraf ./node_modules && yarn install",
+    "build:all": "lerna run build"
   },
   "workspaces": {
     "packages": [
