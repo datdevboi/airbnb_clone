@@ -23,7 +23,7 @@ class C extends React.Component<FormikProps<FormValues> & Props> {
         style={{
           flex: 1,
           display: "flex",
-          position: "relative",
+
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center"
