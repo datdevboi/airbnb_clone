@@ -1,15 +1,15 @@
 import * as React from "react";
-
+import { SecureStore } from "expo";
 import { LoginView } from "../../modules/login/ui/LoginView";
 import { LoginController } from "@airbnbclone/controller";
+import { SID_KEY } from "../shared/constants";
 export class LoginConnector extends React.Component {
-  dummySubmit = async (values: any) => {
-    console.log(values);
-    return null;
+  saveSessionId = (sid: string) => {
+    SecureStore.setItemAsync(SID_KEY, sid);
   };
   render() {
     return (
-      <LoginController>
+      <LoginController onSessionId={this.saveSessionId}>
         {({ submit }: { submit: any }) => <LoginView submit={submit} />}
       </LoginController>
     );
