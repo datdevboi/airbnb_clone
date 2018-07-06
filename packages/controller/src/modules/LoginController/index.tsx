@@ -4,6 +4,7 @@ import gql from "graphql-tag";
 import { normalizeErrors } from "../../utils/normalizeErrors";
 
 interface IProps {
+  onSessionId?: (sessionId: string) => void;
   children: (
     data: { submit: (values: any) => Promise<any> }
   ) => JSX.Element | null;
@@ -19,10 +20,13 @@ class LC extends React.PureComponent<ChildMutateProps<IProps, any, any>> {
     });
     console.log(login);
 
-    if (login) {
-      return normalizeErrors(login);
+    if (login.errors) {
+      return normalizeErrors(login.errors);
     }
-    return null;
+
+    if (login.sessionId && this.props.onSessionId) {
+      this.props.onSessionId(login.sessionId);
+    }
   };
 
   render() {
@@ -35,8 +39,11 @@ class LC extends React.PureComponent<ChildMutateProps<IProps, any, any>> {
 const loginMutation = gql`
   mutation LoginMutation($email: String!, $password: String!) {
     login(email: $email, password: $password) {
-      path
-      message
+      errors {
+        path
+        message
+      }
+      sessionId
     }
   }
 `;
