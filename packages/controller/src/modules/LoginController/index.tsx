@@ -27,6 +27,8 @@ class LC extends React.PureComponent<ChildMutateProps<IProps, any, any>> {
     if (login.sessionId && this.props.onSessionId) {
       this.props.onSessionId(login.sessionId);
     }
+
+    return null;
   };
 
   render() {
