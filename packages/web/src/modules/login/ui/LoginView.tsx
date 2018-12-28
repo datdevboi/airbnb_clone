@@ -56,9 +56,9 @@ class C extends React.Component<FormikProps<FormValues> & Props> {
           />
 
           <FormItem>
-            <a className="login-form-forgot" href="">
+            <Link className="login-form-forgot" to="/forgot-password">
               Forgot password
-            </a>
+            </Link>
           </FormItem>
           <FormItem>
             <Button
