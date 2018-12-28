@@ -25,8 +25,7 @@ class FP extends React.PureComponent<ChildMutateProps<IProps, any, any>> {
 
 const forgotPasswordMutation = gql`
   mutation SendForgotPasswordMutation($email: String!) {
-    sendForgotPasswordEmail(email: $email) 
-    }
+    sendForgotPasswordEmail(email: $email)
   }
 `;
 
