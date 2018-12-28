@@ -34,6 +34,7 @@ class C extends React.Component<FormikProps<FormValues> & Props> {
             placeholder="Email"
             component={InputField as any}
             containerStyle={{ width: "100%" }}
+            autoCapitalize="none"
           />
 
           <Field
