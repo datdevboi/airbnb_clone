@@ -1,20 +1,28 @@
 import * as React from "react";
 import { graphql, ChildMutateProps } from "react-apollo";
 import gql from "graphql-tag";
+import { normalizeErrors } from "../../utils/normalizeErrors";
+import { NormalizeErrorMap } from "../types/NormalizeErrorMap";
 
 interface IProps {
   children: (
-    data: { submit: (values: any) => Promise<null> }
+    data: { submit: (values: any) => Promise<NormalizeErrorMap | null> }
   ) => JSX.Element | null;
 }
 
 class RC extends React.PureComponent<ChildMutateProps<IProps, any, any>> {
   submit = async (values: any) => {
     console.log(values);
-    const response = await this.props.mutate({
+    const {
+      data: { register }
+    } = await this.props.mutate({
       variables: values
     });
-    console.log(response);
+    console.log(register);
+
+    if (register) {
+      return normalizeErrors(register);
+    }
     return null;
   };
   render() {
