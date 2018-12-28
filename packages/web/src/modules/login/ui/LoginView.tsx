@@ -1,6 +1,7 @@
 import * as React from "react";
-import { withFormik, FormikErrors, FormikProps, Field } from "formik";
+import { withFormik, FormikProps, Field } from "formik";
 import { Form, Icon, Button } from "antd";
+import { NormalizeErrorMap } from "@airbnbclone/controller";
 import { Link } from "react-router-dom";
 import { loginSchema } from "@airbnbclone/common";
 import { InputField } from "../../shared/InputField";
@@ -11,7 +12,7 @@ interface FormValues {
   password: string;
 }
 interface Props {
-  submit: (values: FormValues) => Promise<FormikErrors<FormValues> | null>;
+  submit: (values: FormValues) => Promise<NormalizeErrorMap | null>;
 }
 
 class C extends React.Component<FormikProps<FormValues> & Props> {

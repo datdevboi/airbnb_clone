@@ -1,10 +1,12 @@
 import * as React from "react";
-import { withFormik, FormikErrors, FormikProps, Field } from "formik";
+import { withFormik, FormikProps, Field } from "formik";
 import { Form, Icon, Button } from "antd";
 
 import { validUserSchema } from "@airbnbclone/common";
+import { NormalizeErrorMap } from "@airbnbclone/controller";
 import { InputField } from "../../shared/InputField";
 import { Link } from "react-router-dom";
+
 const FormItem = Form.Item;
 
 interface FormValues {
@@ -12,7 +14,7 @@ interface FormValues {
   password: string;
 }
 interface Props {
-  submit: (values: FormValues) => Promise<FormikErrors<FormValues> | null>;
+  submit: (values: FormValues) => Promise<NormalizeErrorMap | null>;
 }
 
 class C extends React.Component<FormikProps<FormValues> & Props> {
@@ -81,7 +83,7 @@ class C extends React.Component<FormikProps<FormValues> & Props> {
 export const RegisterView = withFormik<Props, FormValues>({
   validationSchema: validUserSchema,
   mapPropsToValues: () => ({ email: "", password: "" }),
-  handleSubmit: async (values, { setErrors, props, setSubmitting }) => {
+  handleSubmit: async (values, { setErrors, props }) => {
     const errors = await props.submit(values);
     if (errors) {
       setErrors(errors);
