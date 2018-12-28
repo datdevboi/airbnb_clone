@@ -30,4 +30,4 @@ const forgotPasswordMutation = gql`
   }
 `;
 
-export const ForgotPasswordControler = graphql(forgotPasswordMutation)(FP);
+export const ForgotPasswordController = graphql(forgotPasswordMutation)(FP);
