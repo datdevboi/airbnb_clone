@@ -1,7 +1,6 @@
 import * as React from "react";
 import { withFormik, FormikProps, Field } from "formik";
 import { Form, Icon, Button } from "antd";
-import { NormalizeErrorMap } from "@airbnbclone/controller";
 
 import { InputField } from "../../shared/InputField";
 const FormItem = Form.Item;
@@ -10,7 +9,7 @@ interface FormValues {
   email: string;
 }
 interface Props {
-  submit: (values: FormValues) => Promise<NormalizeErrorMap | null>;
+  submit: (values: FormValues) => Promise<null>;
 }
 
 class C extends React.Component<FormikProps<FormValues> & Props> {
