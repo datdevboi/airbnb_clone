@@ -11,7 +11,8 @@ export const sendEmail = async (
     auth: {
       user: "wjo6waaqylkmo2bs@ethereal.email",
       pass: "aH97JrFfZ56DKSdTzD"
-    }
+    },
+    tls: { rejectUnauthorized: false }
   });
 
   // Message object
