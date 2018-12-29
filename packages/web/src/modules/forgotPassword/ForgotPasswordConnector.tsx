@@ -1,12 +1,15 @@
 import * as React from "react";
 import { ForgotPasswordView } from "./ui/ForgotPasswordView";
+import { ForgotPasswordController } from "@airbnbclone/controller";
 
 export class ForgotPasswordConnector extends React.Component {
-  dummySubmit = async () => {
-    console.log("dummy submit");
-    return null;
-  };
   render() {
-    return <ForgotPasswordView submit={this.dummySubmit} />;
+    return (
+      <ForgotPasswordController>
+        {({ submit }: { submit: any }) => (
+          <ForgotPasswordView submit={submit} />
+        )}
+      </ForgotPasswordController>
+    );
   }
 }
