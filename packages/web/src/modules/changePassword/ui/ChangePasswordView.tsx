@@ -1,23 +1,21 @@
 import * as React from "react";
-import { withFormik, FormikProps, Field } from "formik";
-import { Form, Icon, Button } from "antd";
+import { withFormik, FormikProps, Field, Form } from "formik";
+import { Form as AntForm, Icon, Button } from "antd";
 import { changePasswordSchema } from "@airbnbclone/common";
 
 import { InputField } from "../../shared/InputField";
-const FormItem = Form.Item;
+import { NormalizeErrorMap } from "@airbnbclone/controller";
+const FormItem = AntForm.Item;
 
 interface FormValues {
   newPassword: string;
 }
 interface Props {
-  submit: (values: FormValues) => Promise<null>;
-  id: string;
+  submit: (values: FormValues) => Promise<NormalizeErrorMap | null>;
 }
 
 class C extends React.Component<FormikProps<FormValues> & Props> {
   render() {
-    const { handleSubmit, id } = this.props;
-
     return (
       <div
         style={{
@@ -30,18 +28,13 @@ class C extends React.Component<FormikProps<FormValues> & Props> {
           alignItems: "center"
         }}
       >
-        <div>{id}</div>
-        <Form
-          style={{ width: 500 }}
-          className="login-form"
-          onSubmit={handleSubmit}
-        >
+        <Form style={{ width: 500 }}>
           <Field
             name="newPassword"
             placeholder="New Password"
             type="password"
             prefix={
-              <Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} /> as any
+              <Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} /> as any
             }
             component={InputField}
           />
@@ -65,17 +58,12 @@ export const ChangePasswordView = withFormik<Props, FormValues, any>({
   validationSchema: changePasswordSchema,
   mapPropsToValues: () => ({ newPassword: "" }),
   handleSubmit: async (values, { setErrors, props, setSubmitting }) => {
-    const errors = await props.submit({
-      newPassword: values.newPassword
-      // key: props.id
-    });
+    const errors = await props.submit(values);
 
     console.log(errors);
+
     if (errors) {
       setErrors(errors);
     }
-  },
-
-  validateOnBlur: false,
-  validateOnChange: false
+  }
 })(C);
