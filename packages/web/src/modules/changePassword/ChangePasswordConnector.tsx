@@ -16,7 +16,7 @@ export class ChangePasswordConnector extends React.Component<
         {({ submit }: { submit: any }) => (
           <ChangePasswordView
             // tslint:disable-next-line:jsx-no-lambda
-            submit={({ newPassword }) =>
+            submit={async ({ newPassword }) =>
               submit({
                 newPassword,
                 key
