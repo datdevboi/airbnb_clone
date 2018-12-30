@@ -17,7 +17,7 @@ export const Routes = () => (
       />
       <Route
         exact={true}
-        path="/change-password/:id"
+        path="/change-password/:key"
         component={ChangePasswordConnector}
       />
     </Switch>
