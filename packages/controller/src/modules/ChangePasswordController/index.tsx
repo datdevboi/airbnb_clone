@@ -26,11 +26,11 @@ class FP extends React.PureComponent<
   >
 > {
   submit = async (values: ForgotPasswordChangeMutationVariables) => {
-    const {
-      data: { forgotPasswordChange }
-    } = await this.props.mutate({
+    const response = await this.props.mutate({
       variables: values
     });
+
+    const { forgotPasswordChange } = response.data;
 
     if (forgotPasswordChange) {
       return normalizeErrors(forgotPasswordChange);
