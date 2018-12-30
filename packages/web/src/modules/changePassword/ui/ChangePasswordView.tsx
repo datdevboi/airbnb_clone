@@ -54,15 +54,18 @@ class C extends React.Component<FormikProps<FormValues> & Props> {
   }
 }
 
-export const ChangePasswordView = withFormik<Props, FormValues, any>({
+export const ChangePasswordView = withFormik<Props, FormValues>({
   validationSchema: changePasswordSchema,
+  validateOnChange: true,
+  validateOnBlur: true,
   mapPropsToValues: () => ({ newPassword: "" }),
-  handleSubmit: async (values, { setErrors, props, setSubmitting }) => {
+  handleSubmit: async (values, { setErrors, props, setFieldError }) => {
     const errors = await props.submit(values);
 
-    console.log(errors);
+    // console.log(errors);
+    if (errors && errors.data) {
+      // tslint:disable-next-line:no-string-literal
 
-    if (errors) {
       setErrors(errors);
     }
   }
