@@ -13,6 +13,7 @@ interface FormValues {
 }
 interface Props {
   submit: (values: FormValues) => Promise<NormalizeErrorMap | null>;
+  onFinish: () => void;
 }
 
 class C extends React.Component<FormikProps<FormValues> & Props> {
@@ -84,6 +85,8 @@ export const LoginView = withFormik<Props, FormValues>({
     const errors = await props.submit(values);
     if (errors) {
       setErrors(errors);
+    } else {
+      props.onFinish();
     }
   },
   validationSchema: loginSchema,
