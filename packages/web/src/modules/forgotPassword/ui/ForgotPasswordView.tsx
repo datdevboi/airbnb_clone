@@ -10,6 +10,7 @@ interface FormValues {
 }
 interface Props {
   submit: (values: FormValues) => Promise<null>;
+  onFinish: () => void;
 }
 
 class C extends React.Component<FormikProps<FormValues> & Props> {
@@ -63,6 +64,8 @@ export const ForgotPasswordView = withFormik<Props, FormValues>({
     const errors = await props.submit(values);
     if (errors) {
       setErrors(errors);
+    } else {
+      props.onFinish();
     }
   },
 
