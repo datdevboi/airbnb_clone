@@ -8,6 +8,9 @@ export class ChangePasswordConnector extends React.Component<
     key: string;
   }>
 > {
+  onFinish = () => {
+    this.props.history.push("/login");
+  };
   render() {
     const { key } = this.props.match.params;
 
@@ -15,6 +18,7 @@ export class ChangePasswordConnector extends React.Component<
       <ChangePasswordController>
         {({ submit }: { submit: any }) => (
           <ChangePasswordView
+            onFinish={this.onFinish}
             // tslint:disable-next-line:jsx-no-lambda
             submit={async ({ newPassword }) =>
               submit({

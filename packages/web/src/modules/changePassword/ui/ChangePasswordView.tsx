@@ -12,6 +12,7 @@ interface FormValues {
 }
 interface Props {
   submit: (values: FormValues) => Promise<NormalizeErrorMap | null>;
+  onFinish: () => void;
 }
 
 class C extends React.Component<FormikProps<FormValues> & Props> {
@@ -67,6 +68,8 @@ export const ChangePasswordView = withFormik<Props, FormValues>({
       // tslint:disable-next-line:no-string-literal
 
       setErrors(errors);
+    } else {
+      props.onFinish();
     }
   }
 })(C);
