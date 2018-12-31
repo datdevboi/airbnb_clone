@@ -9,7 +9,7 @@ import { TextPage } from "../modules/TextPage";
 export const Routes = () => (
   <BrowserRouter>
     <Switch>
-      <Route exact={true} path="/" component={LoginConnector} />
+      <Route exact={true} path="/login" component={LoginConnector} />
       <Route exact={true} path="/register" component={RegisterConnector} />
       <Route
         exact={true}
