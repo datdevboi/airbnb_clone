@@ -73,7 +73,7 @@ class C extends React.Component<FormikProps<FormValues> & Props> {
             </Button>
           </FormItem>
           <FormItem>
-            Or <Link to="/">Login</Link>
+            Or <Link to="/login">Login</Link>
           </FormItem>
         </Form>
       </div>
