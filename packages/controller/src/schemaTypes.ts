@@ -26,6 +26,22 @@ export interface ForgotPasswordChangeMutationVariables {
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL mutation operation: SendForgotPasswordMutation
+// ====================================================
+
+export interface SendForgotPasswordMutation {
+  sendForgotPasswordEmail: boolean | null;
+}
+
+export interface SendForgotPasswordMutationVariables {
+  email: string;
+}
+
+
+/* tslint:disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL mutation operation: LoginMutation
 // ====================================================
 
@@ -53,22 +69,6 @@ export interface LoginMutationVariables {
 // This file was automatically generated and should not be edited.
 
 // ====================================================
-// GraphQL mutation operation: SendForgotPasswordMutation
-// ====================================================
-
-export interface SendForgotPasswordMutation {
-  sendForgotPasswordEmail: boolean | null;
-}
-
-export interface SendForgotPasswordMutationVariables {
-  email: string;
-}
-
-
-/* tslint:disable */
-// This file was automatically generated and should not be edited.
-
-// ====================================================
 // GraphQL mutation operation: RegisterMutation
 // ====================================================
 
@@ -84,6 +84,22 @@ export interface RegisterMutation {
 export interface RegisterMutationVariables {
   email: string;
   password: string;
+}
+
+
+/* tslint:disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL query operation: MeQuery
+// ====================================================
+
+export interface MeQuery_me {
+  email: string;
+}
+
+export interface MeQuery {
+  me: MeQuery_me | null;
 }
 
 /* tslint:disable */
