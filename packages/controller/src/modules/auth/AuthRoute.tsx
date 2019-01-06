@@ -10,7 +10,7 @@ class C extends React.PureComponent<ChildProps<Props, MeQuery>> {
   renderRouter = (routeProps: RouteComponentProps<{}>) => {
     const { data, component } = this.props;
 
-    if (!data || !data.loading) {
+    if (!data || data.loading) {
       return null;
     }
 
