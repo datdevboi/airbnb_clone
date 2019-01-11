@@ -1,12 +1,12 @@
 import * as React from "react";
-import { Formik } from "formik";
-import { Form, Button } from "antd";
+import { Formik, Form } from "formik";
+import { Form as AntForm, Button } from "antd";
 
 import { Page1 } from "./ui/Page1";
 import { Page2 } from "./ui/Page2";
 import { Page3 } from "./ui/Page3";
 import { RouteComponentProps } from "react-router-dom";
-const FormItem = Form.Item;
+const FormItem = AntForm.Item;
 
 // name: String!
 //   category: String!
@@ -79,13 +79,10 @@ export class CreateListingConnector extends React.PureComponent<
               alignItems: "center"
             }}
           >
-            <Form
-              style={{ width: 500 }}
-              className="login-form"
-              onSubmit={handleSubmit}
-            >
+            <Form style={{ width: 500 }} className="login-form">
               {pages[this.state.page]}
-              <FormItem>
+
+              <FormItem style={{ display: "flex", justifyContent: "flex-end" }}>
                 {this.state.page === pages.length - 1 ? (
                   <Button type="primary" htmlType="submit">
                     create listing
