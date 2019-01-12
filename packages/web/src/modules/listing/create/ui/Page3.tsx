@@ -1,18 +1,30 @@
 import * as React from "react";
 import { Field } from "formik";
-
-import { Form, InputNumber } from "antd";
+import { InputField } from "../../../../modules/shared/InputField";
 
 export const Page3 = () => (
   <>
-    <Form.Item label="Latitude">
-      <Field name="latitude" placeholder="0" component={InputNumber} />
-    </Form.Item>
-    <Form.Item label="Longtitude">
-      <Field name="longtitude" placeholder="0" component={InputNumber} />
-    </Form.Item>
-    <Form.Item label="Amenities">
-      <Field name="amenities" placeholder="0" component={InputNumber} />
-    </Form.Item>
+    <Field
+      label="Latitude"
+      name="latitude"
+      placeholder="0"
+      component={InputField}
+      useNumberComponent={true}
+    />
+
+    <Field
+      label="Longtitude"
+      name="longtitude"
+      placeholder="0"
+      component={InputField}
+      useNumberComponent={true}
+    />
+
+    <Field
+      label="Amenities"
+      name="amenities"
+      component={InputField}
+      useNumberComponent={true}
+    />
   </>
 );
