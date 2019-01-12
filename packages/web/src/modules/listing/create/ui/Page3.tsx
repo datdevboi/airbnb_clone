@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Field } from "formik";
 import { InputField } from "../../../../modules/shared/InputField";
+import { TagField } from "../../../../modules/shared/TagField";
 
 export const Page3 = () => (
   <>
@@ -23,7 +24,7 @@ export const Page3 = () => (
     <Field
       label="Amenities"
       name="amenities"
-      component={InputField}
+      component={TagField}
       useNumberComponent={true}
     />
   </>
