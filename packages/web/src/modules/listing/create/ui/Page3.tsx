@@ -21,11 +21,6 @@ export const Page3 = () => (
       useNumberComponent={true}
     />
 
-    <Field
-      label="Amenities"
-      name="amenities"
-      component={TagField}
-      useNumberComponent={true}
-    />
+    <Field label="Amenities" name="amenities" component={TagField} />
   </>
 );
