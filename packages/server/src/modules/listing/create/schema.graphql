@@ -1,7 +1,7 @@
 input CreateListingInput {
   name: String!
   category: String!
-  descrition: String!
+  description: String!
   price: Int!
   beds: Int!
   guest: Int!
