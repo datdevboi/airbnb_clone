@@ -1,5 +1,3 @@
-
-
 /* tslint:disable */
 // This file was automatically generated and should not be edited.
 
@@ -13,7 +11,9 @@ export interface ForgotPasswordChangeMutation_forgotPasswordChange {
 }
 
 export interface ForgotPasswordChangeMutation {
-  forgotPasswordChange: ForgotPasswordChangeMutation_forgotPasswordChange[] | null;
+  forgotPasswordChange:
+    | ForgotPasswordChangeMutation_forgotPasswordChange[]
+    | null;
 }
 
 export interface ForgotPasswordChangeMutationVariables {
@@ -21,6 +21,28 @@ export interface ForgotPasswordChangeMutationVariables {
   newPassword: string;
 }
 
+/* tslint:disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL mutation operation: CreateListingMutation
+// ====================================================
+
+export interface CreateListingMutation {
+  createListing: boolean;
+}
+
+export interface CreateListingMutationVariables {
+  name: string;
+  category: string;
+  description: string;
+  price: number;
+  beds: number;
+  guest: number;
+  latitude: number;
+  longitude: number;
+  amenities: string[];
+}
 
 /* tslint:disable */
 // This file was automatically generated and should not be edited.
@@ -36,7 +58,6 @@ export interface SendForgotPasswordMutation {
 export interface SendForgotPasswordMutationVariables {
   email: string;
 }
-
 
 /* tslint:disable */
 // This file was automatically generated and should not be edited.
@@ -64,7 +85,6 @@ export interface LoginMutationVariables {
   password: string;
 }
 
-
 /* tslint:disable */
 // This file was automatically generated and should not be edited.
 
@@ -85,7 +105,6 @@ export interface RegisterMutationVariables {
   email: string;
   password: string;
 }
-
 
 /* tslint:disable */
 // This file was automatically generated and should not be edited.
