@@ -21,7 +21,7 @@ export class Listing extends BaseEntity {
   pictureUrl: string;
 
   @Column("varchar", { length: 255 })
-  descrition: string;
+  description: string;
 
   @Column("int")
   price: number;
