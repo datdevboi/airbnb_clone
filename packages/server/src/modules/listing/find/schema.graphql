@@ -2,7 +2,7 @@ type Listing {
   id: ID!
   name: String!
   category: String!
-  descrition: String!
+  description: String!
   price: Int!
   beds: Int!
   guest: Int!
