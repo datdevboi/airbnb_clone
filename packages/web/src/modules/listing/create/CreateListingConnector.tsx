@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Formik, Form } from "formik";
+import { Formik, Form, FormikActions } from "formik";
 import { Form as AntForm, Button } from "antd";
 
 import { Page1 } from "./ui/Page1";
@@ -33,9 +33,13 @@ class C extends React.PureComponent<
   state = {
     page: 0
   };
-  submit = (values: FormValues, actions: {}) => {
-    console.log(values);
-    this.props.createListing(values);
+  submit = async (
+    values: FormValues,
+    { setSubmitting, resetForm }: FormikActions<FormValues>
+  ) => {
+    await this.props.createListing(values);
+    setSubmitting(false);
+    resetForm();
   };
 
   nextPage = () => {
@@ -59,7 +63,7 @@ class C extends React.PureComponent<
         }}
         onSubmit={this.submit}
       >
-        {({ handleSubmit }) => (
+        {({ isSubmitting }) => (
           <div
             style={{
               height: "100vh",
@@ -77,7 +81,11 @@ class C extends React.PureComponent<
               <FormItem style={{ display: "flex", justifyContent: "flex-end" }}>
                 {this.state.page === pages.length - 1 ? (
                   <div>
-                    <Button type="primary" htmlType="submit">
+                    <Button
+                      type="primary"
+                      htmlType="submit"
+                      disabled={isSubmitting}
+                    >
                       create listing
                     </Button>
                   </div>
