@@ -6,17 +6,8 @@ import { Page1 } from "./ui/Page1";
 import { Page2 } from "./ui/Page2";
 import { Page3 } from "./ui/Page3";
 import { RouteComponentProps } from "react-router-dom";
+import { withCreateListing, WithCreateListing } from "@airbnbclone/controller";
 const FormItem = AntForm.Item;
-
-// name: String!
-//   category: String!
-//   descrition: String!
-//   price: Int!
-//   beds: Int!
-//   guest: Int!
-//   latitude: Float!
-//   longitude: Float!
-//   amenities: [String!]!
 
 interface FormValues {
   name: string;
@@ -35,8 +26,8 @@ interface State {
 }
 // tslint:disable-next-line:jsx-key
 const pages = [<Page1 />, <Page2 />, <Page3 />];
-export class CreateListingConnector extends React.PureComponent<
-  RouteComponentProps<{}>,
+class C extends React.PureComponent<
+  RouteComponentProps<{}> & WithCreateListing,
   State
 > {
   state = {
@@ -44,6 +35,7 @@ export class CreateListingConnector extends React.PureComponent<
   };
   submit = (values: FormValues, actions: {}) => {
     console.log(values);
+    this.props.createListing(values);
   };
 
   nextPage = () => {
@@ -85,9 +77,9 @@ export class CreateListingConnector extends React.PureComponent<
               <FormItem style={{ display: "flex", justifyContent: "flex-end" }}>
                 {this.state.page === pages.length - 1 ? (
                   <div>
-                  <Button type="primary" htmlType="submit">
-                    create listing
-                  </Button>
+                    <Button type="primary" htmlType="submit">
+                      create listing
+                    </Button>
                   </div>
                 ) : (
                   <Button type="primary" onClick={this.nextPage}>
@@ -102,3 +94,5 @@ export class CreateListingConnector extends React.PureComponent<
     );
   }
 }
+
+export const CreateListingConnector = withCreateListing(C);
